@@ -1,3 +1,39 @@
+
+/* General */
+.container {
+	background-color: #8f8f8f;
+}
+
+/* Nav bar */
+.nav-link {
+	margin-right: 5px;
+}
+
+
+/* Footer */
+
+
+/* Masonry layout */
+#bigPic, #mediumPic, #smallPic {
+	border: 5px;
+}
+
+#bigPic {
+	background-color: red;
+}
+#mediumPic {
+	background-color: blue;
+}
+#smallPic {
+	background-color: Green;
+}
+
+/* Home */
+#HomeSection {
+	
+}
+
+/* Error page */
 #error404{
 	background: url(../img/error404.jpg) no-repeat right center;
 	height: calc(100vh - 56px);
@@ -8,16 +44,4 @@
 #error404 h1{
 	font-size: 8rem;
 	margin-top: 2rem;
-}
-#bigPic {
-	background-color: red;
-}
-#mediumPic {
-	background-color: blue;
-}
-#smallPic {
-	background-color: Green;
-}
-.nav-link {
-	margin-right: 5px;
 }
