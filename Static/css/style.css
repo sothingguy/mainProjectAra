@@ -1,7 +1,11 @@
 
 /* General */
-.container {
-	background-color: #8f8f8f;
+body {
+	background-color: #bababa;
+}
+.main{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 /* Nav bar */
@@ -26,6 +30,12 @@
 }
 #smallPic {
 	background-color: Green;
+}
+
+/* Login page */
+#loginForm{
+	margin: auto;
+	text-align: center;
 }
 
 /* Home */
