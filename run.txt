@@ -9,4 +9,4 @@ flask run
 How to commit/push in git
 git add .
 git commit -m "Comment"
-git push origin master
+git push
