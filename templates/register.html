@@ -1,4 +1,30 @@
 {% extends "base.html" %}
 {% block main %}
-<h1>this is the register page</h1>
+<div id="content">
+	<div class="container main">
+		<div class="row">
+			<div class="col-6 offset-md-3" id="loginForm">
+				<form action="login" method="post">
+					<label for="username">Username:</label>
+					<input name="username" type="text">
+					<br>
+					<label for="email">Email:</label>
+					<input name="email" type="email">
+					<br>
+					<label for="dob">Date of Birth:</label>
+					<input name="dob" type="date">
+					<br>
+					<label for="userpw">Password:</label>
+					<input name="userpw" type="password">
+					<br>
+					<label for="userpwconf">Confirm password:</label>
+					<input name="userpwconf" type="password">
+					<br>
+					<input type="submit" value="Login">
+				</form>
+				<a href="/">Already a user? login here!</a>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

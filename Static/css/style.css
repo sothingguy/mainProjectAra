@@ -37,6 +37,9 @@ body {
 	margin: auto;
 	text-align: center;
 }
+#loginForm label{
+	padding-right: 2rem;
+}
 
 /* Home */
 #HomeSection {
