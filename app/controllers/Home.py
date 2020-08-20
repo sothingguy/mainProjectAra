@@ -6,19 +6,11 @@ bp = Blueprint('home', __name__, url_prefix='', static_folder='../static')
 # Load the index page
 @bp.route('/')
 def index():
+    return render_template('Home.html')
 
-    error = None
-    latest_images = []
-    try:
-        database = Database()
-        latest_images = database.get_latest_images()
-    except Exception as err:
-        error = err
-
-    if error:
-        flash(error)
-
-    return render_template('home.html', latest_images=latest_images)
+@bp.route('/explore')
+def explore():
+    return render_template('Explore.html')
 
 @bp.errorhandler(404)
 def error404(e):

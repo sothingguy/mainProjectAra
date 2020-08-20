@@ -6,6 +6,8 @@ export FLASK_ENV=development
 export FLASK_DEBUG=1
 flask run
 
+or just: py app.py
+
 How to commit/push in git
 git add .
 git commit -m "Comment"
