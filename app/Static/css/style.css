@@ -37,8 +37,10 @@ body {
 	margin: auto;
 	text-align: center;
 }
-#loginForm label{
-	padding-right: 2rem;
+#loginForm input{
+	width: 350px;
+	height: 40px;
+	margin-top: 10px;
 }
 
 /* Home */
