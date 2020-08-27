@@ -21,7 +21,9 @@ body {
 #bigPic, #mediumPic, #smallPic {
 	border: 5px;
 }
-
+#masonryLayout {
+	padding: 0rem 2rem 1rem 2rem;
+}
 #bigPic {
 	background-color: red;
 }
@@ -30,6 +32,22 @@ body {
 }
 #smallPic {
 	background-color: Green;
+}
+
+/* Acount options */
+#accountControls {
+	background-color: gray;
+	text-align: center;
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	margin: 2rem;
+}
+#accountControls button{
+	padding: 16px 30px;
+    text-align: center;
+	font-size: 16px;
+	
 }
 
 /* Login page */
@@ -45,7 +63,7 @@ body {
 
 /* Home */
 #HomeSection {
-	
+	background-color: gray;
 }
 
 /* Error page */

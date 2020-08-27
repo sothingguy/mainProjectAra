@@ -5,13 +5,18 @@
 		<div class="row">
 			<div class="col-6 offset-md-3" id="loginForm">
 				<form action="/login" method="post">
-					<label for="username">Username:</label>
-					<input name="username" type="text">
+					{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							{% for message in messages %}
+							<p>{{ message }}</p>
+							{% endfor %}
+						{% endif %}
+					{% endwith %}
+					<input name="email" type="email" placeholder="Email">
 					<br>
-					<label for="password">Password:</label>
-					<input name="password" type="password">
+					<input name="password" type="password" placeholder="Password">
 					<br>
-					<input type="submit" value="Login">
+					<input type="submit" value="Login" style="width: 100px;">
 				</form>
 				<a href="/register">Not registered? register here!</a>
 			</div>

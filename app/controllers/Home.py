@@ -6,11 +6,11 @@ bp = Blueprint('home', __name__, url_prefix='', static_folder='../static')
 # Load the index page
 @bp.route('/')
 def index():
-    return render_template('Home.html')
+    return render_template('home.html')
 
 @bp.route('/explore')
 def explore():
-    return render_template('Explore.html')
+    return render_template('explore.html')
 
 @bp.errorhandler(404)
 def error404(e):

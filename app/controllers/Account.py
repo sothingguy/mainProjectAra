@@ -4,7 +4,7 @@ from app.models.Account import Account
 
 bp = Blueprint('account', __name__, url_prefix='', static_folder='../static')
 
-@bp.route('/register', methods=('GET', 'POST'))
+@bp.route('/register', methods=['GET', 'POST'])
 def register():
     """ 
     Registration controller. 
@@ -26,7 +26,7 @@ def register():
             # Registration error to be flashed
             error = err
         if error:
-            flash(error)
+            flash(str(error))
         else:
             # Registration successful so redirect
             flash("Please login to get started!")
@@ -34,7 +34,7 @@ def register():
 
     return render_template('account/register.html')
     
-@bp.route('/login', methods=('GET', 'POST'))
+@bp.route('/login', methods=['GET', 'POST'])
 def login():
     
     if request.method == 'POST':
@@ -45,14 +45,14 @@ def login():
         except Exception as err:
             error = err
         if error:
-            flash(error)
+            flash(str(error))
         else:
             flash("Welcome back!")
-            return redirect(url_for('account.profile'))
+            return redirect(url_for('home.index'))
 
     return render_template('account/login.html')
     
-@bp.route('/profile', methods=('GET', 'POST'))
+@bp.route('/profile', methods=['GET', 'POST'])
 def profile():
 
     if request.method == 'POST':
@@ -64,7 +64,7 @@ def profile():
         except Exception as err:
             error = err
         if error:
-            flash(error)
+            flash(str(error))
 
     return render_template('account/profile.html')
     
