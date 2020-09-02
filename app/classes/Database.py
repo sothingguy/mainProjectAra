@@ -32,7 +32,7 @@ class Database():
         # Create readable errors based on Firebase errors
         self.readable_errors = {
             "INVALID_PASSWORD": "This is an invalid password",
-            "EMAIL_NOT_FOUND": "This email has not been registered",
+            "EMAIL_NOT_FOUND": 'This email has not been registered <a href="/register">register here</a>',
             "EMAIL_EXISTS": "This email already exists. Try logging in instead.",
             "TOO_MANY_ATTEMPTS_TRY_LATER": "Too many attempts, please try again later",
             "USER_DISABLED": "This account has been disabled by an administrator.",

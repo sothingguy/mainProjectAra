@@ -45,19 +45,20 @@ body {
 }
 #accountControls button{
 	padding: 16px 30px;
-    text-align: center;
 	font-size: 16px;
-	
+	display: block;
+	margin: auto;
+}
+#accountControls .row {
 }
 
 /* Login page */
-#loginForm{
+#loginForm, #registerForm{
 	margin: auto;
 	text-align: center;
 }
-#loginForm input{
-	width: 350px;
-	height: 40px;
+#loginForm input, #registerForm input{
+	width: 80%;
 	margin-top: 10px;
 }
 
