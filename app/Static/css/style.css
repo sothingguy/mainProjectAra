@@ -7,12 +7,35 @@ body {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
+#content {
+	background-image: radial-gradient(circle, #87bdd8, #93c6d9, #a2cfda, #b2d8dc, #c3e0e0, #c3e0e0, #c3e0e0, #c3e0e0, #b2d8dc, #a2cfda, #93c6d9, #87bdd8);
+	height: 100vh;
+}
+.anotlink {
+	color: black;
+}
+
 
 /* Nav bar */
 .nav-link {
 	margin-right: 5px;
 }
-
+.navbar {
+	background: #DAEBE8;
+	color: black;
+}
+#navbar .search {
+	font-size: 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	background-color: #cfe0e8;
+	color: black;
+	padding: 6px 12px 6px 12px;
+}
+.search:hovor {
+	background-color: #65aacd;
+	color: blue;
+}
 
 /* Footer */
 
@@ -36,46 +59,61 @@ body {
 
 /* Acount options */
 #accountControls {
-	background-color: gray;
+	background-color: #87bdd8;
 	text-align: center;
 	position: fixed;
 	right: 0;
 	bottom: 0;
 	margin: 2rem;
+	border-radius: 0.5rem;
+	padding: 0px;
+	height: 17vh;
 }
-#accountControls button{
-	padding: 16px 30px;
-	font-size: 16px;
-	display: block;
-	margin: auto;
+#accountControls button {
+	width: 10vw;
+	height: 8vh;
+	font-size: 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	background-color: #cfe0e8;
+	margin-top: 2vh;
+}
+#accountControls button:hover {
+	background-color: #65aacd;
 }
 #accountControls .row {
-}
-
-/* Login page */
-#loginForm, #registerForm{
 	margin: auto;
-	text-align: center;
 }
-#loginForm input, #registerForm input{
-	width: 80%;
-	margin-top: 10px;
+#accountControls .header {
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Home */
 #HomeSection {
-	background-color: gray;
+	background-color: #DAEBE8;
+}
+
+/* Login and register pages */
+#loginForm, #registerForm {
+	margin: auto;
+	text-align: center;
+	margin-top: 5vh;
+}
+#loginForm input, #registerForm input {
+	width: 80%;
+	margin-top: 10px;
+	height: 5vh;
 }
 
 /* Error page */
-#error404{
+#error404 {
 	background: url(../img/error404.jpg) no-repeat right center;
 	height: calc(100vh - 56px);
 	display: block;
 	position: relative;
 	background-size: 600px 600px;
 }
-#error404 h1{
+#error404 h1 {
 	font-size: 8rem;
 	margin-top: 2rem;
 }
