@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block main %}
+<div id="images" class="container-fluid">
+	<div class="row">
+		<div class="col">
+			<h2>My Images</h2>
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+					<p>{{ message }}</p>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			
+			{% if images %}
+				<div class="grid">
+				{% for image_object in images.each() %}
+					{% with image = image_object.val() %}
+					<div class='grid-item' data-image='{{ image|tojson }}'>
+						<img src='{{ image.upload_location }}' alt='{{ image.description }}'>
+					</div>
+					{% endwith %}
+				{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

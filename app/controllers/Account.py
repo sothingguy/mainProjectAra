@@ -48,7 +48,7 @@ def login():
             flash(str(error))
         else:
             flash("Welcome back!")
-            return redirect(url_for('home.index'))
+            return redirect(url_for('account.profile'))
 
     return render_template('account/login.html')
     

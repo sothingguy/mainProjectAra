@@ -41,21 +41,27 @@ body {
 
 
 /* Masonry layout */
-#bigPic, #mediumPic, #smallPic {
-	border: 5px;
+.grid-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 30px;
 }
-#masonryLayout {
-	padding: 0rem 2rem 1rem 2rem;
+.grid-item img{
+    width: 100%;
+    height: auto;
 }
-#bigPic {
-	background-color: red;
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
 }
-#mediumPic {
-	background-color: blue;
-}
-#smallPic {
-	background-color: Green;
-}
+
 
 /* Acount options */
 #accountControls {
@@ -64,13 +70,12 @@ body {
 	position: fixed;
 	right: 0;
 	bottom: 0;
-	margin: 2rem;
+	margin: 1rem;
 	border-radius: 0.5rem;
 	padding: 0px;
-	height: 17vh;
 }
 #accountControls button {
-	width: 10vw;
+	width: 100%;
 	height: 8vh;
 	font-size: 1rem;
 	border: none;
@@ -94,12 +99,12 @@ body {
 }
 
 /* Login and register pages */
-#loginForm, #registerForm {
+#loginForm, #registerForm, .form-upload {
 	margin: auto;
 	text-align: center;
 	margin-top: 5vh;
 }
-#loginForm input, #registerForm input {
+#loginForm input, #registerForm input{
 	width: 80%;
 	margin-top: 10px;
 	height: 5vh;
