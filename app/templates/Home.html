@@ -3,9 +3,6 @@
 <div id="content">
 	<div class="container">
 		<div class="row">
-			
-		</div>
-		<div class="row">
 			<div class="col-8 offset-md-2" id="HomeSection">
 				<h3>Home</h3>
 				{% with messages = get_flashed_messages() %}
@@ -17,7 +14,7 @@
 					{% for image_object in images.each() %}
 						{% with image = image_object.val() %}
 						<div class="grid-item" data-image="{{ image|tojson }}">
-							<img src="{{ image.upload_location }}" alt="{{ image.description }}">
+							<img data-image='{{ image|tojson }}' src='{{ image.upload_location }}' alt='{{ image.description }}'>
 						</div>
 						{% endwith %}
 					{% endfor %}

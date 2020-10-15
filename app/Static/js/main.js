@@ -8,7 +8,7 @@ $(document).ready(function(){
 		$grid.masonry('layout');
 	});
 	
-	$('.grid-item').click(function(){
+	$('.grid-item img').click(function(){
 		var image_data = $(this).data(image);
 		var image = image_data.image;
 		var description = `<p>${image.description}</p>`;

@@ -1,7 +1,6 @@
 from app.models.Image import Image
 from flask import Blueprint, render_template, flash, session
 from flask import current_app as flask_app
-from flask import session
 
 bp = Blueprint('home', __name__, url_prefix='', static_folder='../static')
 
@@ -18,7 +17,7 @@ def index():
         error = err
     if error:
         flash(str(error))
-    
+
     return render_template('home.html', images=images)
 
 @bp.errorhandler(404)

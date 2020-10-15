@@ -1,4 +1,34 @@
 {% extends "base.html" %}
 {% block main %}
-<h1>this is the profile page</h1>
+<div id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-6 offset-md-3" id="profileForm">
+				<form method="POST" action="/profile" enctype="multipart/form-data">
+					{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							{% for message in messages %}
+							<p>{{ message }}</p>
+							{% endfor %}
+						{% endif %}
+					{% endwith %}
+					<input type="text" name="email" placeholder="Email" value="{{ session['user']['email'] }}">
+					<br>
+					<input type="text" name="firstname" placeholder="First Name" value="{{ session['user']['first_name'] }}">
+					<br>
+					<input type="text" name="lastname" placeholder="Last Name" value="{{ session['user']['last_name'] }}">
+					<br>
+					{% if session['user']['avatar'] %}
+						<div id="avatar">
+							<img src="{{ session['user']['avatar'] }}" alt="Your Profile Image">
+						</div>
+					{% endif %}
+					<input type="file" name="avatar">
+					<br>
+					<input type="submit" value="Update" style="width:100px;">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

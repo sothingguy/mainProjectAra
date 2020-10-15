@@ -94,17 +94,17 @@ body {
 }
 
 /* Home */
-#HomeSection {
+#HomeSection, #images {
 	background-color: #DAEBE8;
 }
 
 /* Login and register pages */
-#loginForm, #registerForm, .form-upload {
+#loginForm, #registerForm, .form-upload, #profileForm {
 	margin: auto;
 	text-align: center;
 	margin-top: 5vh;
 }
-#loginForm input, #registerForm input{
+#loginForm input, #registerForm input, #profileForm input{
 	width: 80%;
 	margin-top: 10px;
 	height: 5vh;
