@@ -20,8 +20,10 @@
 								<div class="grid">
 								{% for image_object in images.each() %}
 									{% with image = image_object.val() %}
-									<div class='grid-item'>
-										<img data-image='{{ image|tojson }}' src='{{ image.upload_location }}' alt='{{ image.description }}'>
+									<div class='grid-item' data-image='{{ image|tojson }}'>
+										<figure class="filter-{{ image.filter }}">
+											<img src="{{ image.upload_location }}" alt="{{ image.description }}">
+										</figure>
 									<h3>{{ image.name }}</h3>
 									<p>{{ image.description }}</p>
 									<a href="/images/edit/{{ image.id }}"><i class="fas fa-edit"></i></a>

@@ -9,17 +9,7 @@
 					{# Handle messages here #}
 				{% endwith %}
 				
-				{% if images %}
-					<div class="grid">
-					{% for image_object in images.each() %}
-						{% with image = image_object.val() %}
-						<div class="grid-item" data-image="{{ image|tojson }}">
-							<img data-image='{{ image|tojson }}' src='{{ image.upload_location }}' alt='{{ image.description }}'>
-						</div>
-						{% endwith %}
-					{% endfor %}
-					</div>
-				{% endif %}
+				
 			<div id="accountControls" class="col-2">
 				<div class="row header">
 					<div class="col">

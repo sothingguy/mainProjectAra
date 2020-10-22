@@ -9,7 +9,7 @@ body {
 }
 #content {
 	background-image: radial-gradient(circle, #87bdd8, #93c6d9, #a2cfda, #b2d8dc, #c3e0e0, #c3e0e0, #c3e0e0, #c3e0e0, #b2d8dc, #a2cfda, #93c6d9, #87bdd8);
-	height: 100vh;
+	height: 105%;
 }
 .anotlink {
 	color: black;
@@ -23,18 +23,6 @@ body {
 .navbar {
 	background: #DAEBE8;
 	color: black;
-}
-#navbar .search {
-	font-size: 1rem;
-	border: none;
-	border-radius: 0.5rem;
-	background-color: #cfe0e8;
-	color: black;
-	padding: 6px 12px 6px 12px;
-}
-.search:hovor {
-	background-color: #65aacd;
-	color: blue;
 }
 
 /* Footer */

@@ -17,7 +17,9 @@
 						{% endif %}
 					{% endwith %}
 					<div id="image">
-						<img src="{{ image.upload_location }}" alt="{{ image.description }}">
+						<figure class="filter-{{ image.filter }}">
+							<img src="{{ image.upload_location }}" alt="{{ image.description }}">
+						</figure>
 					</div>
 					<br>
 					<div class="form-group">
@@ -28,7 +30,7 @@
 					</div>
 					<div class="form-group">
 						<label>Categories</label>
-						<select name="category" class="custom-select" required>
+						<select id="category" name="category" class="custom-select" data-category="{{ image.category }}" required>
 							<option value="abstract">Abstract</option>
 							<option value="animals-wildlife">Animals/Wildlife</option>
 							<option value="the-arts">The Arts</option>
@@ -58,8 +60,8 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Filter</label>
-						<select name="filter" class="custom-select" required>
+	<label>Filter</label>
+	<select id="filter-select" name="filter" class="custom-select" data-filter="{{ image.filter }}" required>
 							<option value="_1977">1977</option>
 							<option value="aden">Aden</option>
 							<option value="amaro">Amaro</option>
