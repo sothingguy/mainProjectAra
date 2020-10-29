@@ -9,10 +9,16 @@ body {
 }
 #content {
 	background-image: radial-gradient(circle, #87bdd8, #93c6d9, #a2cfda, #b2d8dc, #c3e0e0, #c3e0e0, #c3e0e0, #c3e0e0, #b2d8dc, #a2cfda, #93c6d9, #87bdd8);
-	height: 105%;
 }
 .anotlink {
 	color: black;
+}
+.container {
+	background-image: url("/static/img/home-backdrop.jpg");
+	min-height: 90vh;
+}
+.row {
+	height: 100%
 }
 
 
@@ -51,7 +57,7 @@ body {
 }
 
 
-/* Acount options */
+/* Acount options on home menu */
 #accountControls {
 	background-color: #87bdd8;
 	text-align: center;
@@ -82,8 +88,20 @@ body {
 }
 
 /* Home */
-#HomeSection, #images {
-	background-color: #DAEBE8;
+#HomeSection {
+	height: 100%;
+}
+#entry-Buttons {
+	margin-top: 25vh;
+}
+#HomeSection button {
+	width: 50%;
+	height: 8vh;
+	font-size: 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	background-color: #cfe0e8;
+	margin-top: 2vh;
 }
 
 /* Login and register pages */

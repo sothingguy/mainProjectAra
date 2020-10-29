@@ -64,83 +64,101 @@ class Account():
             return
         
     def login(self, request):
-        if request.method == 'POST':
+        """
+        This takes the login form infomation fromthe view and gives it to the controller to be taken into the DB
+        """
+        if request.method == 'POST': #checks for request
+            #makes sure there is enough data in request
             email = request.form['email']
             password = request.form['password']
 
             error = None
+            #Gives error if there is any missign data
             if not email:
                 error = 'An email is required.'
             elif not password:
                 error = 'Password is required.'
             else:
-                try:
+                #runs if all the daata is avaliable
+                try: #trys to give data to database
                     database = Database()
                     user = database.login(email, password)
                     # TODO Remove for production
                     #flask_app.logger.info(user)
                     self.user.set_user(user)
-                except Exception as err:
+                except Exception as err: #gives errors if there is error with databse
                     error = err
 
-        if error:
+        if error: #gives any errors to flask if there are any errors anywhere above
             raise Exception(error)
         else:
             return
         
     def update(self, request):
-        if request.method == 'POST':
+        """
+        Used to update the users acount
+        """
+        if request.method == 'POST': # runns if there is a form entry
+            #checks to make sure all data is in the form
             first_name = request.form['firstname']
             last_name = request.form['lastname']
 
             error = None
+            #gives errors if any data is missing
             if not first_name:
                 error = 'A first name is required.'
             elif not last_name:
                 error = 'A last name is required.'
             else:
-                if 'avatar' in request.files:
+                #if all data is corect it trys to send data to database
+                
+                if 'avatar' in request.files: #first checks for a avatar change because this requres the uploader
                     file = request.files['avatar']
-                    if file.filename:
+                    if file.filename: #usese the uploader to upload the image found in app/classes/Upload.py
                         uploader = Upload()
                         avatar = uploader.upload(file, session['user']['localId'])
                         session['user']['avatar'] = "/" + avatar.strip("/")
-                try:
+                try: #trys to give data to DB
                     session['user']['first_name'] = first_name
                     session['user']['last_name'] = last_name
                     database = Database()
                     user_auth = database.update_user(session['user'])
                     session.modified = True
-                except Exception as err:
+                except Exception as err: #gives any errors if there is one while trying to acsess database
                     error = err
 
-        if error:
+        if error: # handles the error if there is one above
             raise Exception(error)
         else:
             return
         
     def like(self, image_id, like, request):
-                
+        """
+        This calss handles likes and sends them on to the data base if an image has been liked or unliked
+        """
         changed = False
         likes = session['user']['likes']
 
-        if like == 'true':
+        if like == 'true': #checks if image has been liked
             if image_id not in likes:
                 likes.append(image_id)
                 changed = True
-        else:
+        else: # Checks if image has been unliked
             if image_id in likes:
                 likes.remove(image_id)
                 changed = True
 
-        if changed:
+        if changed: # If the image has been liked or unliked it updates the database
             session['user']['likes'] = likes
             database = Database()
             database.update_user(session['user'])
             session.modified = True
 
-        return changed
+        return changed #returns weather the database was changed or not
         
     def logout(self):
+        """
+        Logs the user out
+        """
         self.user.unset_user()
 

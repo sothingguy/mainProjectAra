@@ -4,49 +4,93 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-8 offset-md-2" id="HomeSection">
-				<h3>Home</h3>
 				{% with messages = get_flashed_messages() %}
 					{# Handle messages here #}
 				{% endwith %}
-				
-				
-			<div id="accountControls" class="col-2">
-				<div class="row header">
-					<div class="col">
-						<h4>Acount</h4>
+				{% if user.logged_in %}
+					<br>
+					{% if images %}
+						{% set liked = 'fas' %}
+						{% set not_liked = 'far' %}
+						{% set likes = session['user']['likes'] %}
+						<div class="grid" style="background-color: white">
+						{% for image_object in images.each() %}
+							{% with image = image_object.val() %}
+							<div class="grid-item">
+								<figure class="filter-{{ image.filter }}">
+									<img src="{{ image.upload_location }}" alt="{{ image.description }}">
+								</figure>
+								<div class="info row mx-0">
+									<div class="col-2 avatar pl-0">
+										<img src="{{ image.user_avatar }}" alt="{{ image.user_name }}">
+									</div>
+									<div class="col-10 pr-0">
+										<h5>
+											{{ image.name }} 
+											<a href="/images/like/{{ image.id }}">
+												<i class="like fa-heart {{ liked if image.id in likes else not_liked }}" data-image="{{ image.id }}"></i>
+											</a>
+										</h5>
+										<p>{{ image.description }}<br><small>{{ image.user_name }}</small></p>
+									</div>
+								</div>
+							</div>
+							{% endwith %}
+						{% endfor %}
+						</div>
+					{% endif %}
+				{% else %}
+				<div id="entry-Buttons">
+					<a href="/login">
+						<button type="button" href="/login">
+							Login
+						</button>
+					</a>
+					<br>
+					<a href="/register">
+						<button type="button" href="/register">
+							Register
+						</button>
+					</a>
+				</div>
+				{% endif %}
+			</div>
+		<div id="accountControls" class="col-2">
+			<div class="row header">
+				<div class="col">
+					<h4>Acount</h4>
+				</div>
+			</div>
+			{% if user.logged_in %}
+				<div class="row">
+					<div class="col-6">
+						<a href="/images/upload">
+							<button type="button" href="/login">
+								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
+									<path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708l3-3z"/>
+								</svg>
+							</button>
+						</a>
+					</div>
+					<div class="col-6">
+						<a href="/profile">
+							<button type="button" href="/login">
+								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-sliders" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
+								</svg>
+							</button>
+						</a>
 					</div>
 				</div>
-				{% if user.logged_in %}
-					<div class="row">
-						<div class="col-6">
-							<a href="/images/upload">
-								<button type="button" href="/login">
-									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
-										<path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708l3-3z"/>
-									</svg>
-								</button>
-							</a>
-						</div>
-						<div class="col-6">
-							<a href="/profile">
-								<button type="button" href="/login">
-									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-sliders" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
-									</svg>
-								</button>
-							</a>
-						</div>
+			{% else %}
+				<div class="row">
+					<div class="col-12">
+						<a href="/login"><button type="button" href="/login">Login</button></a>
 					</div>
-				{% else %}
-					<div class="row">
-						<div class="col-12">
-							<a href="/login"><button type="button" href="/login">Login</button></a>
-						</div>
-					</div>
-				{% endif %}
-				<br>
-			</div>
+				</div>
+			{% endif %}
+			<br>
 		</div>
 	</div>
 </div>

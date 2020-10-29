@@ -8,6 +8,7 @@ $(document).ready(function(){
 		$grid.masonry('layout');
 	});
 	
+	// gives each image its infomation like description
 	$('.grid-item img').click(function(){
 		var image_data = $(this).data(image);
 		var image = image_data.image;
@@ -18,10 +19,12 @@ $(document).ready(function(){
 		$('.modal').modal('show');
 	});
 	
+	// handles liking images
 	$('i.like').click(function(e) {
 		e.stopPropagation();
 		e.preventDefault();
-
+		
+		// gets data of image being liked/unliked
 		var like = $(this).hasClass('far');
 		var image_id = $(this).data('image');
 		var _this = $(this);
@@ -33,6 +36,7 @@ $(document).ready(function(){
 			image_id: image_id
 		}, 
 		function(result) {
+			// updates the heart icons class so the color changes instantly
 			if (like) {
 				_this.removeClass('far');
 				_this.addClass('fas');
@@ -44,15 +48,17 @@ $(document).ready(function(){
 	);
 	});
 	
-	if ($('#filter-select').length > 0 ) {
+	//saves info for image edit page
+	if ($('#filter-select').length > 0 ) { // passes the images current filter to edit page
 		var filter = $('#filter-select').data('filter');
 		$('#filter-select').val(filter);
 	}
-	if ($('#category').length > 0 ) {
+	if ($('#category').length > 0 ) { // passe the images current catagorie to edit image page
 		var filter = $('#category').data('category');
 		$('#category').val(filter);
 	}
 	
+	//handles adding filter classes to images with filters
 	$('#filter-select').change(function(e) {
 		var new_filter = 'filter-' + this.value;
 		$('#image figure').removeClass();
