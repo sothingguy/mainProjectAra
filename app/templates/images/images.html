@@ -20,7 +20,7 @@
 								{% set liked = 'fas' %}
 								{% set not_liked = 'far' %}
 								{% set likes = session['user']['likes'] %}
-								<div class="grid">
+								<div class="grid" style="background-color: white">
 								{% for image_object in images.each() %}
 									{% with image = image_object.val() %}
 									<div class="grid-item">
